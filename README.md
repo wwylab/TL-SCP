@@ -89,7 +89,7 @@ All simulation scripts and saved results are organized by figure or table number
 
 The manuscript applies SCP and TL-SCP to annotate germline *TP53* mutations according to their associations with age at first cancer.
 
-### TP53 Database
+### *TP53* Database
 
 The public *TP53* Database (release 21) and YTA mutation catalog are provided in `tables/Main-Table-1/raw-data/`.
 
