@@ -1,0 +1,3 @@
+"n_S","d_0","observed_Dhat_min","observed_Dhat_max","n_replicates","span","degree","n_crossings","interior_supported_crossing","n_below_within_025","n_above_within_025","fitted_margin_at_d0","coarse_grid_root"
+500,0.248953004131831,0.168539325842697,0.496379525593009,300,0.8,2,1,TRUE,52,31,3.75410257935567e-15,0.248953004131831
+1000,0.226893204272195,0.162546816479401,0.473408239700375,300,0.8,2,1,TRUE,43,34,-3.35327509301103e-15,0.226893204272195

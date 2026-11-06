@@ -1,0 +1,10 @@
+# Run with Rscript from any directory.
+arg <- grep("^--file=", commandArgs(FALSE), value = TRUE)
+folder <- dirname(normalizePath(sub("^--file=", "", arg[1])))
+root <- normalizePath(file.path(folder, "../.."))
+source(file.path(root,'method/real-data-analysis/analysis.R'))
+fit <- clinical_inputs(root)
+fit$target$YTAClass <- yta_classes(fit$target$ProtDescription,root)
+result <- km_data(fit$target,'YTAClass',c('0','A'),.95,'YTA class')
+saveRDS(result,file.path(folder,'Main-Figure-1.rds'))
+source(file.path(folder,'Main-Figure-1-from-rds.R'))
