@@ -105,7 +105,7 @@ Researchers with authorized access to the clinical data can rerun the analyses b
 
 The MD Anderson analysis also includes a rank-based reassignment of R337H to the Mid-onset group, as described in the manuscript. This application-specific step is implemented explicitly in the corresponding scripts.
 
-## Code and attribution
+## Code availability
 
 SCP and TL-SCP were developed by Wenyi Wang's Statistical Bioinformatics Lab and Xiaoqian Liu.
 
