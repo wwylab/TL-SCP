@@ -88,7 +88,7 @@ fit_clinical <- function(root, mda = FALSE) {
     pr <- outer(a,den,'/')
     if (any(!is.finite(pr))) return(scalar_update(eta,y,status))
     w <- rowSums(risk*pr*(1-pr)); score <- status-rowSums(risk*pr)
-    z <- eta+smethodology/w; z[rowSums(risk)==0] <- eta[rowSums(risk)==0]
+    z <- eta+score/w; z[rowSums(risk)==0] <- eta[rowSums(risk)==0]
     list(w=w,z=z)
   }
   q <- clinical_inputs(root,mda); T <- q$target; S <- q$source; m <- q$mutations
