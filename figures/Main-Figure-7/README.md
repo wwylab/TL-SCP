@@ -2,6 +2,15 @@
 
 The first two panels compare weighted mutation rankings from the TP53 Database and MD Anderson analyses. The third compares preliminary Cox effects, relative to R175H, for mutations assigned to different onset groups. Standard errors are based on 1,000 family-bootstrap samples per cohort, with the two variances combined for the intervals.
 
+## Data and variables
+
+`Main-Figure-7.rds` contains two data frames:
+
+- `ranks` has one row per `Mutation` and `cohort` (`NCI` for the public TP53 Database, `MDA` for MD Anderson). `weighted_rank` averages the ascending preliminary Cox ranks using carrier counts: `target_weight = target_n / (target_n + source_n)` and source weight `1 - target_weight`. `group` gives the reported onset label; `highlight` marks discordant annotations.
+- `forest` contains discordant mutations. `beta_NCI` and `beta_MDA` are preliminary target Cox log-hazard effects relative to R175H; `SE_NCI` and `SE_MDA` are family-bootstrap standard errors. `delta` is `beta_MDA - beta_NCI`; `SE_delta = sqrt(SE_NCI^2 + SE_MDA^2)`, and `lower`/`upper` give the approximate 95% interval.
+
+Clinical input variables are defined in [Data and variables](../../method/README.md#data-and-variables).
+
 ## Reproduce from saved results
 
 From the repository root:
@@ -20,8 +29,8 @@ Rscript figures/Main-Figure-7/Main-Figure-7.R
 
 The public TP53 Database release 21 and YTA catalog are provided in `tables/Main-Table-1/raw-data/`. The cohort definitions and mutation filters follow Section 5.1 of the manuscript.
 
-**MD Anderson data:** Individual-level clinical and family records are not distributed. To rerun the clinical analysis, set `MDA_DATA` to an authorized analysis CSV with `Individual_code`, `Sex` (`M`/`F`), `ProtDescription`, `time`, and `status` (1 = cancer, 0 = censored). The preparation code also accepts the reviewed `MDAprospectiveMUT_clean.RData` file. The saved `.rds` results can be used without access to these records.
+To refit the MD Anderson analysis, set `MDA_DATA` to an authorized CSV or the reviewed `MDAprospectiveMUT_clean.RData` file; see [MD Anderson inputs](../../method/README.md#md-anderson-inputs). The saved `.rds` results regenerate this figure without individual patient data.
 
-**Reported onset groups:** The MD Anderson analysis fits four TL-SCP groups and then assigns the R337H singleton to Mid onset using its weighted rank. This reporting step is explicit in the analysis code; `raw_TLSCP_group` preserves the group assigned by the fitted model. The SCP comparison retains its four fitted groups.
+Reported TL-SCP labels include the rank-based reassignment of R337H to Mid onset. The [clinical analysis documentation](../../method/README.md#real-data-analyses) gives the fitting and reporting rules.
 
-The family bootstrap additionally requires `Family_ID` in the MD Anderson analysis data and Python with `numpy`, `pandas`, and `scipy`. Set `PYTHON` if these are installed in a separate environment.
+The family bootstrap also requires `Family_ID` in the MD Anderson analysis data and Python with `numpy`, `pandas`, and `scipy`. Set `PYTHON` if these are installed in a separate environment.

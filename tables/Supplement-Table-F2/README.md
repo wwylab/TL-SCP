@@ -2,6 +2,10 @@
 
 This table lists 28 MD Anderson mutations, source-cohort carrier counts, and the corresponding onset annotations. The reported TL-SCP groups include the rank-based reassignment of R337H.
 
+## Data and variables
+
+`Supplement-Table-F2.rds` contains one row per MD Anderson analysis mutation, with `ProtDescription`, `target_n`, `source_n`, `TL-SCP`, `SCP`, and `YTAClass`. The table script orders mutations by the reported TL-SCP onset group, sums carrier counts, and displays `Unclassified` YTA annotations as `Unknown`. See [Data and variables](../../method/README.md#data-and-variables) for shared definitions.
+
 ## Reproduce from saved results
 
 From the repository root:
@@ -18,6 +22,6 @@ This reads `Supplement-Table-F2.rds` and recreates `Supplement-Table-F2.tex` as 
 Rscript tables/Supplement-Table-F2/Supplement-Table-F2.R
 ```
 
-**MD Anderson data:** Individual-level clinical and family records are not distributed. To rerun the clinical analysis, set `MDA_DATA` to an authorized analysis CSV with `Individual_code`, `Sex` (`M`/`F`), `ProtDescription`, `time`, and `status` (1 = cancer, 0 = censored). The preparation code also accepts the reviewed `MDAprospectiveMUT_clean.RData` file. The saved `.rds` results can be used without access to these records.
+To refit the MD Anderson analysis, set `MDA_DATA` to an authorized CSV or the reviewed `MDAprospectiveMUT_clean.RData` file; see [MD Anderson inputs](../../method/README.md#md-anderson-inputs). The saved `.rds` results regenerate this table without individual patient data.
 
-**Reported onset groups:** The MD Anderson analysis fits four TL-SCP groups and then assigns the R337H singleton to Mid onset using its weighted rank. This reporting step is explicit in the analysis code; `raw_TLSCP_group` preserves the group assigned by the fitted model. The SCP comparison retains its four fitted groups.
+Reported TL-SCP labels include the rank-based reassignment of R337H to Mid onset. The [clinical analysis documentation](../../method/README.md#real-data-analyses) gives the fitting and reporting rules.

@@ -2,6 +2,10 @@
 
 TL-SCP groups 31 recurrent mutations among 393 LFS/Chompret carriers using ranking information from 356 source-cohort carriers. The figure compares cancer-free survival across the three TL-SCP onset groups and YTA classes. Shaded bands are pointwise 90% confidence intervals, and the legends report mutation and carrier counts.
 
+## Data and variables
+
+`Main-Figure-3.rds` contains `yta` and `tlscp` Kaplan–Meier summaries for the primary target cohort. The YTA panel uses classes 0 and A–D, excluding unclassified mutations; the TL-SCP panel uses the three reported onset groups. The [shared survival-summary definitions](../../method/README.md#shared-clinical-results) describe the curves, confidence limits, counts, and log-rank results.
+
 ## Reproduce from saved results
 
 From the repository root:

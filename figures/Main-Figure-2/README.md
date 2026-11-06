@@ -2,6 +2,15 @@
 
 Panel (a) compares YTA classes with DCSM patient clusters, assigning each mutation to its most frequent cluster (or marking ties). Panel (b) compares sex-adjusted Cox K-means annotations between the source and target cohorts; 16 of the 31 mutations change groups.
 
+## Data and variables
+
+`Main-Figure-2.rds` contains two mutation-level data frames:
+
+- `dcsm` holds carrier counts in the `Early-onset`, `Mid-onset`, and `Late-onset` patient clusters. Panel (a) compares `YTAClass` with `majority_DCSM`, the most frequent cluster or `Tied`.
+- `cox` pairs source and target results by `Mutation`. `beta_source` and `beta_target` are preliminary Cox log-hazard coefficients; `group_source` and `group_target` give the assignments used in panel (b).
+
+Each ribbon counts mutations. Shared input and annotation definitions are in [Data and variables](../../method/README.md#data-and-variables).
+
 ## Reproduce from saved results
 
 From the repository root:

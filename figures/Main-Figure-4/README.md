@@ -2,6 +2,10 @@
 
 These alluvial plots compare the TL-SCP onset groups with YTA classes and target-only SCP for 31 recurrent mutations. Each ribbon represents a mutation, showing how source-informed ranking changes its annotation.
 
+## Data and variables
+
+`Main-Figure-4.rds` has one row per primary-analysis mutation, identified by `ProtDescription`. The plots compare `YTAClass` and `SCP` with `TL-SCP`. `target_n` and `source_n` give carrier counts; ribbon widths count mutations. See [Data and variables](../../method/README.md#data-and-variables) for shared definitions.
+
 ## Reproduce from saved results
 
 From the repository root:

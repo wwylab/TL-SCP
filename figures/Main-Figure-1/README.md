@@ -2,6 +2,10 @@
 
 This figure compares cancer-free survival between YTA classes 0 and A among 303 LFS/Chompret carriers. Despite their distinct functional annotations, the two classes show limited separation in age at first cancer. The curves include 95% confidence intervals.
 
+## Data and variables
+
+`Main-Figure-1.rds` contains the Kaplan–Meier curves, confidence limits, group counts, and log-rank result for target carriers in YTA classes 0 and A. The shared [survival-summary definitions](../../method/README.md#shared-clinical-results) describe the fields used to draw this figure.
+
 ## Reproduce from saved results
 
 From the repository root:
