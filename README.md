@@ -71,7 +71,7 @@ Some analyses require additional software:
 
 - **Gurobi:** Penalty comparisons in Supplementary Figures A.1–A.4.
 - **C++ compiler:** Distance-to-set optimization implemented using RcppEigen.
-- **Python:** DCSM comparisons and family bootstrap analyses.
+- **Python:** DCSM comparisons, family bootstrap analyses, and alluvial figures. The alluvial renderer uses only the Python standard library.
 
 Instructions and additional dependencies are provided in the corresponding folder READMEs.
 
@@ -81,7 +81,7 @@ The simulation studies examine the performance of SCP and TL-SCP under different
 
 The studies also compare alternative fusion penalties and assess when transfer learning improves estimation and mutation grouping.
 
-In particular, Supplementary Figure A.7 examines the effect of increasing disagreement between source and target rankings. The experiment considers six levels of population ranking discordance and two source sample sizes, relating empirical ranking disagreement to estimation error, clustering accuracy, and the population weighted ranking margin.
+In particular, Supplementary Figure A.7 examines the effect of increasing disagreement between source and target rankings. The experiment considers six levels of population ranking discordance and two source sample sizes, relating empirical ranking disagreement to estimation error and clustering accuracy. Vertical reference lines mark where the fitted population weighted ranking margin crosses zero.
 
 All simulation scripts and saved results are organized by figure or table number.
 

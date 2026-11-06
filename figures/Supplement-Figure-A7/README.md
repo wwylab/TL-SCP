@@ -1,6 +1,6 @@
 # Supplementary Figure A.7: Transfer under ranking disagreement
 
-This simulation examines how TL-SCP performs as source and target effect rankings become less consistent. It considers six levels of population discordance (0–0.40), two source sample sizes (500 and 1,000), and 50 replicates per setting. The panels relate empirical ranking disagreement to estimation error, clustering accuracy, and the population weighted ranking margin.
+This simulation examines how TL-SCP performs as source and target effect rankings become less consistent. It considers six levels of population discordance (0–0.40), two source sample sizes (500 and 1,000), and 50 replicates per setting. The two columns show estimation error and clustering accuracy against empirical ranking disagreement. Vertical reference lines mark where the fitted population weighted ranking margin crosses zero.
 
 ## Reproduce from saved results
 

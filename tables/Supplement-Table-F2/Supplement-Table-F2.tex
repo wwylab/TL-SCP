@@ -1,6 +1,12 @@
-\begin{tabular}{lrrlll}
+\begingroup
+\fontsize{9.5}{11.4}\selectfont
+\renewcommand{\arraystretch}{1}
+\setlength{\tabcolsep}{6pt}
+\begin{tabular*}{0.98\textwidth}{@{\extracolsep{\fill}}lrrlll@{}}
 \toprule
-Mutation & Target carriers & Source carriers & TL-SCP & SCP & YTA \\
+& \multicolumn{2}{c}{Carriers} & \multicolumn{3}{c}{Annotation} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-6}
+Mutation & Target & Source & TL-SCP & SCP & YTA \\
 \midrule
 \texttt{R196*} & 15 & 6 & Early-onset & Early-onset & 0 \\
 \texttt{R248W} & 18 & 34 & Early-onset & Early-onset & A \\
@@ -9,6 +15,7 @@ Mutation & Target carriers & Source carriers & TL-SCP & SCP & YTA \\
 \texttt{R282W} & 16 & 14 & Early-onset & Early-onset & A \\
 \texttt{R337C} & 2 & 3 & Early-onset & Early-onset & A \\
 \texttt{R342*} & 3 & 6 & Early-onset & Early-onset & 0 \\
+\addlinespace[2pt]
 \texttt{D281N} & 2 & 2 & Mid-onset & Mid-onset & A \\
 \texttt{G245S} & 3 & 23 & Mid-onset & Early-onset & A \\
 \texttt{M237I} & 5 & 1 & Mid-onset & Early-onset & A \\
@@ -25,6 +32,7 @@ Mutation & Target carriers & Source carriers & TL-SCP & SCP & YTA \\
 \texttt{T125T} & 8 & 15 & Mid-onset & Early-onset & Unknown \\
 \texttt{W146*} & 9 & 2 & Mid-onset & Early-onset & 0 \\
 \texttt{Y220C} & 3 & 2 & Mid-onset & Early-onset & A \\
+\addlinespace[2pt]
 \texttt{R181C} & 6 & 25 & Late-onset & Late-onset & C \\
 \texttt{R181H} & 8 & 5 & Late-onset & Group 4 & C \\
 \texttt{R267Q} & 3 & 6 & Late-onset & Mid-onset & C \\
@@ -33,4 +41,5 @@ Mutation & Target carriers & Source carriers & TL-SCP & SCP & YTA \\
 \midrule
 Total & 202 & 329 & & & \\
 \bottomrule
-\end{tabular}
+\end{tabular*}
+\endgroup

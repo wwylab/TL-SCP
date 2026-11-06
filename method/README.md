@@ -22,6 +22,7 @@ method/
 │   └── dcsm.py             DCSM comparison
 └── visualization/
     ├── figures.R           Kaplan–Meier, alluvial, and simulation figures
+    ├── alluvials.py        TikZ alluvial diagrams with mutation names
     ├── ranks.R             Weighted-rank and coefficient-comparison panels
     └── tables.R            LaTeX tables from saved mutation summaries
 ```
@@ -42,7 +43,7 @@ beta <- fit$Beta_path[, selected]
 
 The `Y` matrices contain `time` and `status`, with status 1 for an event and 0 for censoring. Source and target design columns must identify the same predictors in the same order. `SCP()` takes `y`, `status`, and `X` separately. Both functions return the coefficient path, iteration counts, and BIC values in `IC_path`. Supplementary Figure A.5 provides a complete simulated example.
 
-`methodology/fusion_solver.cpp` accelerates the simulation fits through RcppEigen. The simulation scripts call `use_fast_distance(root)` to load it. The penalty comparisons in Supplementary Figures A.1–A.4 use `methodology/scp_penalties.R` and require the Gurobi R interface.
+`methodology/fusion_solver.cpp` accelerates the simulation fits through RcppEigen. The simulation scripts call `use_fast_distance(root)` to load it. Figure A.5 uses `r_sort = TRUE` to retain the original R solver’s ordering of tied coefficient differences; Figures A.6–A.7 retain the stable ordering used in their simulations. The penalty comparisons in Supplementary Figures A.1–A.4 use `methodology/scp_penalties.R` and require the Gurobi R interface.
 
 ## Real-data analyses
 

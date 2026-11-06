@@ -12,6 +12,8 @@ Rscript figures/Main-Figure-2/Main-Figure-2-from-rds.R
 
 This reads `Main-Figure-2.rds` and recreates `Main-Figure-2.pdf` and its TikZ source (`Main-Figure-2.tex`). No model fitting is required.
 
+The alluvial figure uses Python 3 and LaTeX; no Python packages are needed for this step. Set `PYTHON` if your Python executable has a different name.
+
 ## Rerun the analysis
 
 ```sh
