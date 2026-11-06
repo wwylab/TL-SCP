@@ -93,16 +93,34 @@ alluvial_panel <- function(d, left, right, left_title, right_title, title = NULL
 }
 
 simulation_boxplots <- function(d, settings, setting_label, reference, controls,
-                               method_levels, metrics = c('relErr', 'NMI')) {
+                               method_levels, metrics = c('relErr', 'NMI'), scale_data = d) {
   d$method <- factor(d$method, levels = method_levels)
   d$setting <- factor(d$setting, levels = settings)
   colors <- c('Cox-K-means' = 'black', SCP = 'red2', 'TL-SCP' = 'purple2',
               'SCP-Lasso' = 'darkcyan', 'SCP-SCAD' = 'blue', 'SCP-MCP' = 'purple',
               'SCP-Distance' = 'red', 'SCP-Allpair' = 'black')
   panels <- list(); tests <- list()
+  source_size <- if ('n_S' %in% names(scale_data)) scale_data$n_S else rep(1,nrow(scale_data))
   for (metric in metrics) {
     dd <- d[is.finite(d[[metric]]), ]
-    span <- diff(range(dd[[metric]])); if (span == 0) span <- 1
+    whiskers <- unlist(lapply(split(scale_data[[metric]],
+      interaction(source_size, scale_data$setting, scale_data$method, drop=TRUE)),
+      function(x) boxplot.stats(x)$stats))
+    top <- max(whiskers)
+    transfer <- reference == 'TL-SCP'
+    if (metric == 'NMI') {
+      base <- if (transfer) max(.85, top + .06) else max(1, top) + .035
+      step <- if (transfer) .11 else .105
+      tip <- .015
+      ceiling <- if (transfer) base + .21 else base + (length(controls)-1)*step + 4*tip
+    } else if (transfer) {
+      top <- top * 1.04
+      base <- top * 1.04; step <- top * .13; tip <- top * .015
+      ceiling <- top * 1.30
+    } else {
+      base <- max(top * 1.06, 1e-5); step <- base * .13; tip <- base * .018
+      ceiling <- base + (length(controls)-1)*step + 4*tip
+    }
     brackets <- list()
     for (setting in settings) {
       pvals <- numeric(length(controls)); ns <- integer(length(controls))
@@ -115,8 +133,8 @@ simulation_boxplots <- function(d, settings, setting_label, reference, controls,
       }
       adjusted <- p.adjust(pvals, 'holm')
       for (j in seq_along(controls)) {
-        i <- match(setting, settings); offset <- function(m) .75*(match(m, method_levels)-(length(method_levels)+1)/2)/length(method_levels)
-        y <- max(dd[dd$setting == setting, metric]) + span*(.08 + .13*(j-1))
+        i <- match(setting, settings); offset <- function(m) .72*(match(m, method_levels)-(length(method_levels)+1)/2)/length(method_levels)
+        y <- base + step*(j-1)
         brackets[[length(brackets)+1]] <- data.frame(x=i+offset(controls[j]), xend=i+offset(reference), y=y,
                                   label=if(adjusted[j]<.001)'$p<0.001$' else sprintf('$p=%.3f$',adjusted[j]))
         tests[[length(tests)+1]] <- data.frame(metric, setting, reference, control=controls[j],
@@ -124,13 +142,24 @@ simulation_boxplots <- function(d, settings, setting_label, reference, controls,
       }
     }
     b <- do.call(rbind, brackets)
-    b$label_y <- b$y + span*.035
-    panels[[metric]] <- ggplot(dd, aes(setting, .data[[metric]], fill=method)) +
-      geom_boxplot(width=.7, outlier.shape=NA, position=position_dodge(.75), linewidth=.3) +
-      geom_segment(data=b,aes(x=x,xend=xend,y=y,yend=y),inherit.aes=FALSE,linewidth=.3) +
-      geom_text(data=b,aes(x=(x+xend)/2,y=label_y,label=label),inherit.aes=FALSE,size=3) +
-      scale_fill_manual(values=colors,drop=FALSE) + labs(x=setting_label,y=metric,fill=NULL) +
-      theme_bw(base_size=12) + theme(panel.grid.minor=element_blank(),legend.position='top')
+    b$label_y <- b$y + tip
+    b$bracket_bottom <- b$y - tip
+    p <- ggplot(dd, aes(setting, .data[[metric]], color=method)) +
+      geom_boxplot(width=.72, outlier.shape=NA, position=if(transfer) position_dodge2() else position_dodge(.72),
+                   linewidth=.45, fill='white') +
+      geom_segment(data=b,aes(x=x,xend=xend,y=y,yend=y),inherit.aes=FALSE,linewidth=.3,color='black') +
+      geom_segment(data=b,aes(x=x,xend=x,y=bracket_bottom,yend=y),inherit.aes=FALSE,linewidth=.3,color='black') +
+      geom_segment(data=b,aes(x=xend,xend=xend,y=bracket_bottom,yend=y),inherit.aes=FALSE,linewidth=.3,color='black') +
+      geom_text(data=b,aes(x=(x+xend)/2,y=label_y,label=label),
+                inherit.aes=FALSE,size=3.5,vjust=0,color='black') +
+      scale_color_manual(values=colors[method_levels],drop=FALSE,name=NULL) +
+      labs(x=setting_label,y=metric) + theme_bw(base_size=11) +
+      theme(panel.grid.minor=element_blank(),axis.title=element_text(size=11),
+            plot.title=element_text(hjust=.5,size=12),legend.position='top',
+            legend.key.width=grid::unit(1.2,'lines')) +
+      coord_cartesian(ylim=c(0,ceiling))
+    if(metric=='NMI') p <- p + scale_y_continuous(breaks=seq(0,1,.25))
+    panels[[metric]] <- p
   }
   attr(panels,'tests') <- do.call(rbind,tests)
   panels
