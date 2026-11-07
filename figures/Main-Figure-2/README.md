@@ -29,6 +29,6 @@ The alluvial figure uses Python 3 and LaTeX; no Python packages are needed for t
 Rscript figures/Main-Figure-2/Main-Figure-2.R
 ```
 
-The public TP53 Database release 21 and YTA catalog are provided in `tables/Main-Table-1/raw-data/`. The cohort definitions and mutation filters follow Section 5.1 of the manuscript.
+The public *TP53* Database release 21 and YTA catalog are provided in `tables/Main-Table-1/raw-data/`. The cohort definitions and mutation filters follow Section 5.1 of the manuscript.
 
 The DCSM comparison also requires Python (`numpy`, `pandas`, `scipy`, `scikit-learn`, and `torch`) and a checkout of [DCSM](https://github.com/BojianHou/DCSM). Set `DCSM_DIR` to the checkout and, if necessary, `PYTHON` to the intended Python executable. The original reproduction check used commit `6d67dc7ae17be224b8ac3fb7526ba213b3d74f7b`. The model uses three Weibull experts, a 16-unit embedding, and five initializations, with model selection separated by family. Only mutation-level cluster counts are saved.

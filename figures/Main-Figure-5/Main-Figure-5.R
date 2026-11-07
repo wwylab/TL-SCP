@@ -3,7 +3,7 @@ arg <- grep("^--file=", commandArgs(FALSE), value = TRUE)
 folder <- dirname(normalizePath(sub("^--file=", "", arg[1])))
 root <- normalizePath(file.path(folder, "../.."))
 source(file.path(root, "method/real-data-analysis/analysis.R"))
-fit <- fit_clinical(root, mda = TRUE)
+fit <- estimate_groups(root, mda = TRUE)
 result <- list(yta = km_data(
   fit$target, "YTAClass", c("0", "A", "B", "C", "D"), 0.9,
   "YTA classes"

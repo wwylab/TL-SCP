@@ -4,8 +4,8 @@ folder <- dirname(normalizePath(sub("^--file=", "", arg[1])))
 root <- normalizePath(file.path(folder, "../.."))
 
 source(file.path(root, "method/real-data-analysis/analysis.R"))
-a <- fit_clinical(root)
-b <- fit_clinical(root, mda = TRUE)
+a <- estimate_groups(root)
+b <- estimate_groups(root, mda = TRUE)
 shared <- merge(a$annotations, b$annotations, by = "ProtDescription", suffixes = c(
   "_Database",
   "_MDA"

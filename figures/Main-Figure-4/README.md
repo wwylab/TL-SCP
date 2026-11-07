@@ -24,4 +24,4 @@ The alluvial figure uses Python 3 and LaTeX; no Python packages are needed for t
 Rscript figures/Main-Figure-4/Main-Figure-4.R
 ```
 
-The public TP53 Database release 21 and YTA catalog are provided in `tables/Main-Table-1/raw-data/`. The cohort definitions and mutation filters follow Section 5.1 of the manuscript.
+The public *TP53* Database release 21 and YTA catalog are provided in `tables/Main-Table-1/raw-data/`. The cohort definitions and mutation filters follow Section 5.1 of the manuscript.

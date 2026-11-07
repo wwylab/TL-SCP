@@ -1,20 +1,16 @@
-# TL-SCP: Reproducible Code and Analyses
+# TL-SCP: Reproducibility Materials
 
-This repository provides the code and results for the manuscript *Transfer Learning for Survival-based Clustering of Predictors with an Application to TP53 Mutation Annotation*.
-
-Survival-based Clustering of Predictors (SCP) groups germline *TP53* mutations with similar effects on age at first cancer. Transfer learning-enhanced SCP (TL-SCP) uses mutation rankings from a related source cohort to form these groups and estimates their effects in the target cohort.
-
-The repository includes the simulation studies, real-data analyses, and code used to produce the figures and tables in the manuscript and Supplementary Materials.
+This repository contains the code and data for the simulation studies and real-data analyses in *Transfer Learning for Survival-based Clustering of Predictors with an Application to TP53 Mutation Annotation*. Saved R results and scripts are also included to reproduce the figures and tables in the manuscript and Supplementary Materials.
 
 ## Repository structure
 
-The repository is organized into three directories:
+The files are organized into three directories:
 
-- **`figures/`** — Main Figures 1–7 and Supplementary Figures A.1–A.7.
-- **`tables/`** — Main Tables 1–2 and Supplementary Tables F.1–F.2.
-- **`method/`** — Methodology, simulation, real-data analysis, and visualization code.
+- `figures/`: Main Figures 1–7 and Supplementary Figures A.1–A.7.
+- `tables/`: Main Tables 1–2 and Supplementary Tables F.1–F.2.
+- `method/`: SCP and TL-SCP implementations, simulation code, real-data analyses, and plotting functions.
 
-Each figure and table has its own folder, named according to its numbering in the manuscript. For example, `figures/Main-Figure-3/` contains:
+Each figure and table has its own folder containing the analysis script, saved results, reproduction script, and README. For example, `figures/Main-Figure-3/` contains:
 
 - `Main-Figure-3.R` — Runs the analysis and generates the figure.
 - `Main-Figure-3.rds` — Saved numerical results.
@@ -22,11 +18,11 @@ Each figure and table has its own folder, named according to its numbering in th
 - `Main-Figure-3.pdf` and `Main-Figure-3.tex` — Final figure and TikZ source.
 - `README.md` — Details of the analysis and instructions for reproduction.
 
-Tables follow the same organization, with LaTeX files containing the table output. The `method/` directory contains the core implementations of SCP and TL-SCP, along with supporting functions.
+The table folders follow the same structure, with LaTeX files for the table output. The shared code is in `method/`.
 
 ## Data and variables
 
-The [method README](method/README.md#data-and-variables) describes the clinical inputs, cohort preparation, and shared result fields, along with the [simulation measures](method/README.md#simulation-results). Each figure and table README describes its saved `.rds` files and gives the commands for regenerating the output or rerunning the analysis.
+The [method README](method/README.md#data-and-variables) describes the clinical variables, cohort preparation, and saved R results. It also defines the [simulation measures](method/README.md#simulation-results). The README in each figure or table folder gives the additional details needed for that analysis.
 
 ## Getting started
 
@@ -45,9 +41,9 @@ Figures that use TikZ require a TeX distribution with `pdflatex` and the `mathpa
 
 ### 2. Reproduce figures and tables from saved results
 
-The saved numerical results (`.rds` files) can be used to regenerate the figures and tables without refitting models or accessing restricted clinical data.
+The supplied `.rds` files allow the figures and tables to be regenerated without refitting the models. This also applies to the MD Anderson results, for which individual-level patient data cannot be shared.
 
-For example, from the repository root:
+From the repository root, run:
 
 ```sh
 Rscript figures/Main-Figure-3/Main-Figure-3-from-rds.R
@@ -56,11 +52,11 @@ Rscript tables/Supplement-Table-F1/Supplement-Table-F1-from-rds.R
 
 ### 3. Rerun the analyses
 
-Each figure and table folder contains an analysis script and a README with instructions for running it.
+To rerun an analysis, use the script without the `-from-rds` suffix in the corresponding figure or table folder. The README in that folder gives the required inputs and commands.
 
-The simulation scripts generate the simulated datasets, fit the competing methods, and produce the numerical results. The experiments generally use 50 simulation replicates per setting, as described in the manuscript and Supplementary Materials.
+The simulation scripts generate their own data, fit the competing methods, and save the results. Most simulation settings use 50 replicates, as specified in the manuscript and Supplementary Materials.
 
-The original analyses used R 4.5.3 and `glmnet` 4.1-10. To reproduce the original model estimates, we recommend installing the same `glmnet` version:
+The original model fits used R 4.5.3 and `glmnet` 4.1-10. To reproduce these estimates, install the same versions:
 
 ```r
 install.packages("remotes")
@@ -79,29 +75,33 @@ The corresponding folder READMEs list the additional dependencies and instructio
 
 ## Simulation studies
 
-The simulations compare SCP and TL-SCP across noise levels, censoring rates, problem dimensions, source sample sizes, covariate shifts, and disagreement in mutation-effect rankings. They also compare fusion penalties and measure estimation error and mutation-group recovery.
+The simulations examine the performance of SCP and TL-SCP under different noise levels, censoring rates, problem dimensions, source sample sizes, covariate shifts, and source–target ranking differences. We also compare different fusion penalties and evaluate estimation accuracy, group recovery, and computation time.
 
-Supplementary Figure A.7 uses six levels of population ranking discordance and two source sample sizes to examine estimation error and clustering accuracy as disagreement between source and target rankings increases. Vertical reference lines mark where the fitted population weighted ranking margin crosses zero.
+Supplementary Figure A.7 examines how TL-SCP performs as the source and target rankings become increasingly different. The simulations consider six levels of ranking discordance and two source sample sizes. The reference lines indicate where the fitted population weighted-ranking margin changes sign.
 
-## Real data analysis
+## Real-data analyses
 
-The manuscript applies SCP and TL-SCP to annotate germline *TP53* mutations according to their associations with age at first cancer.
+We apply SCP and TL-SCP to group germline *TP53* mutations according to their associations with age at first cancer.
 
 ### *TP53* Database
 
-The public *TP53* Database (release 21) and YTA mutation catalog are provided in `tables/Main-Table-1/raw-data/`.
+The primary analysis uses release 21 of the public *TP53* Database and a yeast transactivation (YTA) mutation catalog. Both are included in `tables/Main-Table-1/raw-data/`.
 
-The target cohort consists of carriers classified as LFS/Chompret; the source cohort includes carriers with LFL, FH, noFH, and Other family classifications. The analysis scripts apply the mutation selection and filtering rules described in the manuscript.
+The target cohort includes carriers classified as LFS/Chompret, while the source cohort includes carriers with LFL, FH, noFH, and Other family classifications. The mutation selection and filtering rules are described in the manuscript and implemented in the analysis scripts.
 
 ### MD Anderson cohort
 
-The MD Anderson analyses use individual-level clinical and family data that cannot be publicly distributed.
+We also analyze data from a prospective family-based Li-Fraumeni syndrome cohort at MD Anderson Cancer Center. Individual-level clinical and family data cannot be publicly shared.
 
-The repository includes aggregate mutation annotations, carrier counts, survival summaries, and estimated coefficients. These files do not contain patient identifiers, family identifiers, or individual-level survival records.
+The repository includes saved R results containing mutation annotations, carrier counts, survival summaries, and coefficient estimates. These files can be used to reproduce the reported figures and tables without access to the original patient records.
 
-Researchers with authorized access can rerun the analyses by setting `MDA_DATA` to a file in one of the [documented input formats](method/README.md#md-anderson-inputs). The figure and table READMEs give the commands.
+We also include a synthetic dataset with the same sample size and variable structure as the MD Anderson target cohort. Together with the public *TP53* Database source cohort, it allows readers to run the SCP and TL-SCP analyses without access to the restricted patient records. The resulting estimates are based on simulated data and will differ from those reported in the manuscript.
 
-The MD Anderson analysis reassigns R337H to the Mid-onset group using its weighted rank, as described in the manuscript. The [method README](method/README.md#real-data-analyses) explains how the scripts apply this reporting step.
+See the [synthetic-data instructions](method/README.md#synthetic-md-anderson-data) for the files and commands.
+
+Researchers with authorized access can rerun the analyses by setting `MDA_DATA` to the appropriate input file, as described in the [method README](method/README.md#md-anderson-inputs).
+
+For this analysis, the fitted TL-SCP model has four groups. The R337H singleton is subsequently assigned to the Mid-onset group according to its weighted rank, as reported in the manuscript.
 
 ## Code availability
 

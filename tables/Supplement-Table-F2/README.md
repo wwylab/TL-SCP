@@ -24,4 +24,6 @@ Rscript tables/Supplement-Table-F2/Supplement-Table-F2.R
 
 To refit the MD Anderson analysis, set `MDA_DATA` to an authorized CSV or the reviewed `MDAprospectiveMUT_clean.RData` file; see [MD Anderson inputs](../../method/README.md#md-anderson-inputs). The saved `.rds` results regenerate this table without individual patient data.
 
+To test this script with the synthetic target cohort and public source data, follow the [synthetic-data instructions](../../method/README.md#synthetic-md-anderson-data), which use a temporary copy to preserve the published results.
+
 Reported TL-SCP labels include the rank-based reassignment of R337H to Mid onset. The [clinical analysis documentation](../../method/README.md#real-data-analyses) gives the fitting and reporting rules.

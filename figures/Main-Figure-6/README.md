@@ -24,8 +24,10 @@ The alluvial figure uses Python 3 and LaTeX; no Python packages are needed for t
 Rscript figures/Main-Figure-6/Main-Figure-6.R
 ```
 
-The public TP53 Database release 21 and YTA catalog are provided in `tables/Main-Table-1/raw-data/`. The cohort definitions and mutation filters follow Section 5.1 of the manuscript.
+The public *TP53* Database release 21 and YTA catalog are provided in `tables/Main-Table-1/raw-data/`. The cohort definitions and mutation filters follow Section 5.1 of the manuscript.
 
 To refit the MD Anderson analysis, set `MDA_DATA` to an authorized CSV or the reviewed `MDAprospectiveMUT_clean.RData` file; see [MD Anderson inputs](../../method/README.md#md-anderson-inputs). The saved `.rds` results regenerate this figure without individual patient data.
+
+To test this script with the synthetic target cohort and public source data, follow the [synthetic-data instructions](../../method/README.md#synthetic-md-anderson-data), which use a temporary copy to preserve the published results.
 
 Reported TL-SCP labels include the rank-based reassignment of R337H to Mid onset. The [clinical analysis documentation](../../method/README.md#real-data-analyses) gives the fitting and reporting rules.

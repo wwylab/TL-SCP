@@ -100,7 +100,7 @@ clinical_inputs <- function(root, mda = FALSE) {
   if (mda) {
     file <- Sys.getenv("MDA_DATA")
     if (!nzchar(file) || !file.exists(file)) {
-      stop("Set MDA_DATA to your authorized MDA analysis file. See the README for its required columns.")
+      stop("Set MDA_DATA to an authorized analysis file or synthetic prepared CSV. See the README for its required columns.")
     }
     target <- prepare_mda(file)
   } else {
@@ -122,7 +122,7 @@ yta_classes <- function(mutations, root) {
   y
 }
 
-fit_clinical <- function(root, mda = FALSE) {
+estimate_groups <- function(root, mda = FALSE) {
   source(file.path(root, "method/real-data-analysis/fusion_solver.R"), local = TRUE)
   source(file.path(root, "method/real-data-analysis/fit_groups.R"), local = TRUE)
   # Vectorized working weights are algebraically identical to update_wz.
