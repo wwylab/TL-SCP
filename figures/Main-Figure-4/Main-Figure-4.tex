@@ -1,0 +1,74 @@
+\documentclass[11pt,border=0pt]{standalone}
+\usepackage{mathpazo}\usepackage[T1]{fontenc}\usepackage{tikz}\usepackage{xcolor}\usepackage{graphicx}
+\begin{document}
+\definecolor{panel0Early}{HTML}{F8766D}
+\definecolor{panel0Mid}{HTML}{00BA38}
+\definecolor{panel0Late}{HTML}{619CFF}
+\definecolor{panel0Tied}{HTML}{666666}
+\definecolor{panel1Early}{HTML}{F8766D}
+\definecolor{panel1Mid}{HTML}{00BA38}
+\definecolor{panel1Late}{HTML}{619CFF}
+\definecolor{panel1Tied}{HTML}{666666}
+\begin{minipage}{6.5in}\centering
+\begin{minipage}[t]{0.49\textwidth}\vspace{0pt}\centering (a) YTA versus TL-SCP\par\smallskip\resizebox{\linewidth}{!}{
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (0,-.10) rectangle (8.4,10.64000);
+\path[fill=panel0Early,fill opacity=.57,draw=none] (2.95,8.91500) .. controls (3.72,8.91500) and (4.28,8.82000) .. (5.05,8.82000) -- (5.05,8.59500) .. controls (4.28,8.59500) and (3.72,8.69000) .. (2.95,8.69000) -- cycle;
+\path[fill=panel0Mid,fill opacity=.57,draw=none] (2.95,8.69000) .. controls (3.72,8.69000) and (4.28,5.32750) .. (5.05,5.32750) -- (5.05,5.25250) .. controls (4.28,5.25250) and (3.72,8.61500) .. (2.95,8.61500) -- cycle;
+\path[fill=panel0Late,fill opacity=.57,draw=none] (2.95,8.61500) .. controls (3.72,8.61500) and (4.28,1.36500) .. (5.05,1.36500) -- (5.05,1.21500) .. controls (4.28,1.21500) and (3.72,8.46500) .. (2.95,8.46500) -- cycle;
+\path[fill=panel0Early,fill opacity=.57,draw=none] (2.95,7.10750) .. controls (3.72,7.10750) and (4.28,8.59500) .. (5.05,8.59500) -- (5.05,8.22000) .. controls (4.28,8.22000) and (3.72,6.73250) .. (2.95,6.73250) -- cycle;
+\path[fill=panel0Mid,fill opacity=.57,draw=none] (2.95,6.73250) .. controls (3.72,6.73250) and (4.28,5.25250) .. (5.05,5.25250) -- (5.05,4.57750) .. controls (4.28,4.57750) and (3.72,6.05750) .. (2.95,6.05750) -- cycle;
+\path[fill=panel0Late,fill opacity=.57,draw=none] (2.95,6.05750) .. controls (3.72,6.05750) and (4.28,1.21500) .. (5.05,1.21500) -- (5.05,0.99000) .. controls (4.28,0.99000) and (3.72,5.83250) .. (2.95,5.83250) -- cycle;
+\path[fill=panel0Mid,fill opacity=.57,draw=none] (2.95,4.40000) .. controls (3.72,4.40000) and (4.28,4.57750) .. (5.05,4.57750) -- (5.05,4.50250) .. controls (4.28,4.50250) and (3.72,4.32500) .. (2.95,4.32500) -- cycle;
+\path[fill=panel0Late,fill opacity=.57,draw=none] (2.95,4.32500) .. controls (3.72,4.32500) and (4.28,0.99000) .. (5.05,0.99000) -- (5.05,0.76500) .. controls (4.28,0.76500) and (3.72,4.10000) .. (2.95,4.10000) -- cycle;
+\path[fill=panel0Mid,fill opacity=.57,draw=none] (2.95,2.95500) .. controls (3.72,2.95500) and (4.28,4.50250) .. (5.05,4.50250) -- (5.05,4.35250) .. controls (4.28,4.35250) and (3.72,2.80500) .. (2.95,2.80500) -- cycle;
+\path[fill=panel0Late,fill opacity=.57,draw=none] (2.95,1.71750) .. controls (3.72,1.71750) and (4.28,0.76500) .. (5.05,0.76500) -- (5.05,0.69000) .. controls (4.28,0.69000) and (3.72,1.64250) .. (2.95,1.64250) -- cycle;
+\path[fill=panel0Late,fill opacity=.57,draw=none] (2.95,0.51750) .. controls (3.72,0.51750) and (4.28,0.69000) .. (5.05,0.69000) -- (5.05,0.61500) .. controls (4.28,0.61500) and (3.72,0.44250) .. (2.95,0.44250) -- cycle;
+\draw[fill=black!3,draw=black!50,line width=.35pt] (2.79,8.46500) rectangle (2.95,8.91500);
+\node[align=center,inner sep=0pt,font=\fontsize{7.4}{8.5}\selectfont] at (1.36,8.69000){\begin{tabular}{@{}c@{}}{\fontsize{8.5}{10}\selectfont\bfseries 0 (6)}\\[3pt]\textcolor{panel0Late}{\texttt{P27fs}}, \textcolor{panel0Early}{\texttt{R196*}}, \textcolor{panel0Mid}{\texttt{R213*}}\\[1pt]\textcolor{panel0Late}{\texttt{R306*}}, \textcolor{panel0Early}{\texttt{R342*}}, \textcolor{panel0Early}{\texttt{Y103*}}\end{tabular}};
+\draw[fill=black!3,draw=black!50,line width=.35pt] (2.79,5.83250) rectangle (2.95,7.10750);
+\node[align=center,inner sep=0pt,font=\fontsize{7.4}{8.5}\selectfont] at (1.36,6.47000){\begin{tabular}{@{}c@{}}{\fontsize{8.5}{10}\selectfont\bfseries A (17)}\\[3pt]\textcolor{panel0Early}{\texttt{C141Y}}, \textcolor{panel0Late}{\texttt{C275F}}, \textcolor{panel0Mid}{\texttt{G245S}}\\[1pt]\textcolor{panel0Mid}{\texttt{K132E}}, \textcolor{panel0Late}{\texttt{M246V}}, \textcolor{panel0Mid}{\texttt{R110L}}\\[1pt]\textcolor{panel0Mid}{\texttt{R175H}}, \textcolor{panel0Late}{\texttt{R213Q}}, \textcolor{panel0Early}{\texttt{R248Q}}\\[1pt]\textcolor{panel0Early}{\texttt{R248W}}, \textcolor{panel0Mid}{\texttt{R273C}}, \textcolor{panel0Mid}{\texttt{R273H}}\\[1pt]\textcolor{panel0Early}{\texttt{R282W}}, \textcolor{panel0Mid}{\texttt{R337C}}, \textcolor{panel0Mid}{\texttt{R342P}}\\[1pt]\textcolor{panel0Mid}{\texttt{S241F}}, \textcolor{panel0Early}{\texttt{Y220C}}\end{tabular}};
+\draw[fill=black!3,draw=black!50,line width=.35pt] (2.79,4.10000) rectangle (2.95,4.40000);
+\node[align=center,inner sep=0pt,font=\fontsize{7.4}{8.5}\selectfont] at (1.36,4.25000){\begin{tabular}{@{}c@{}}{\fontsize{8.5}{10}\selectfont\bfseries B (4)}\\[3pt]\textcolor{panel0Late}{\texttt{E180K}}, \textcolor{panel0Mid}{\texttt{P152L}}, \textcolor{panel0Late}{\texttt{R158H}}\\[1pt]\textcolor{panel0Late}{\texttt{R267W}}\end{tabular}};
+\draw[fill=black!3,draw=black!50,line width=.35pt] (2.79,2.80500) rectangle (2.95,2.95500);
+\node[align=center,inner sep=0pt,font=\fontsize{7.4}{8.5}\selectfont] at (1.36,2.88000){\begin{tabular}{@{}c@{}}{\fontsize{8.5}{10}\selectfont\bfseries C (2)}\\[3pt]\textcolor{panel0Mid}{\texttt{R156H}}, \textcolor{panel0Mid}{\texttt{R337H}}\end{tabular}};
+\draw[fill=black!3,draw=black!50,line width=.35pt] (2.79,1.64250) rectangle (2.95,1.71750);
+\node[align=center,inner sep=0pt,font=\fontsize{7.4}{8.5}\selectfont] at (1.36,1.68000){\begin{tabular}{@{}c@{}}{\fontsize{8.5}{10}\selectfont\bfseries D (1)}\\[3pt]\textcolor{panel0Late}{\texttt{N235S}}\end{tabular}};
+\draw[fill=black!3,draw=black!50,line width=.35pt] (2.79,0.44250) rectangle (2.95,0.51750);
+\node[align=center,inner sep=0pt,font=\fontsize{7.4}{8.5}\selectfont] at (1.36,0.48000){\begin{tabular}{@{}c@{}}{\fontsize{8.5}{10}\selectfont\bfseries Unclassified (1)}\\[3pt]\textcolor{panel0Late}{\texttt{T125T}}\end{tabular}};
+\draw[fill=panel0Early!9,draw=black!50,line width=.35pt] (5.05,8.22000) rectangle (5.21,8.82000);
+\node[align=center,inner sep=0pt,font=\fontsize{7.4}{8.5}\selectfont] at (6.64,8.52000){\begin{tabular}{@{}c@{}}{\fontsize{8.5}{10}\selectfont\bfseries Early (8)}\\[3pt]\textcolor{panel0Early}{\texttt{C141Y}}, \textcolor{panel0Early}{\texttt{R196*}}, \textcolor{panel0Early}{\texttt{R248Q}}\\[1pt]\textcolor{panel0Early}{\texttt{R248W}}, \textcolor{panel0Early}{\texttt{R282W}}, \textcolor{panel0Early}{\texttt{R342*}}\\[1pt]\textcolor{panel0Early}{\texttt{Y103*}}, \textcolor{panel0Early}{\texttt{Y220C}}\end{tabular}};
+\draw[fill=panel0Mid!9,draw=black!50,line width=.35pt] (5.05,4.35250) rectangle (5.21,5.32750);
+\node[align=center,inner sep=0pt,font=\fontsize{7.4}{8.5}\selectfont] at (6.64,4.84000){\begin{tabular}{@{}c@{}}{\fontsize{8.5}{10}\selectfont\bfseries Mid (13)}\\[3pt]\textcolor{panel0Mid}{\texttt{G245S}}, \textcolor{panel0Mid}{\texttt{K132E}}, \textcolor{panel0Mid}{\texttt{P152L}}\\[1pt]\textcolor{panel0Mid}{\texttt{R110L}}, \textcolor{panel0Mid}{\texttt{R156H}}, \textcolor{panel0Mid}{\texttt{R175H}}\\[1pt]\textcolor{panel0Mid}{\texttt{R213*}}, \textcolor{panel0Mid}{\texttt{R273C}}, \textcolor{panel0Mid}{\texttt{R273H}}\\[1pt]\textcolor{panel0Mid}{\texttt{R337C}}, \textcolor{panel0Mid}{\texttt{R337H}}, \textcolor{panel0Mid}{\texttt{R342P}}\\[1pt]\textcolor{panel0Mid}{\texttt{S241F}}\end{tabular}};
+\draw[fill=panel0Late!9,draw=black!50,line width=.35pt] (5.05,0.61500) rectangle (5.21,1.36500);
+\node[align=center,inner sep=0pt,font=\fontsize{7.4}{8.5}\selectfont] at (6.64,0.99000){\begin{tabular}{@{}c@{}}{\fontsize{8.5}{10}\selectfont\bfseries Late (10)}\\[3pt]\textcolor{panel0Late}{\texttt{C275F}}, \textcolor{panel0Late}{\texttt{E180K}}, \textcolor{panel0Late}{\texttt{M246V}}\\[1pt]\textcolor{panel0Late}{\texttt{N235S}}, \textcolor{panel0Late}{\texttt{P27fs}}, \textcolor{panel0Late}{\texttt{R158H}}\\[1pt]\textcolor{panel0Late}{\texttt{R213Q}}, \textcolor{panel0Late}{\texttt{R267W}}, \textcolor{panel0Late}{\texttt{R306*}}\\[1pt]\textcolor{panel0Late}{\texttt{T125T}}\end{tabular}};
+\node[align=center,inner sep=0pt,font=\fontsize{9}{10.5}\selectfont\bfseries] at (1.36,9.89000) {YTA};
+\node[align=center,inner sep=0pt,font=\fontsize{9}{10.5}\selectfont\bfseries] at (6.64,9.89000) {TL-SCP};
+\end{tikzpicture}
+}\end{minipage}\hfill
+\begin{minipage}[t]{0.49\textwidth}\vspace{0pt}\centering (b) SCP versus TL-SCP\par\smallskip\resizebox{\linewidth}{!}{
+\begin{tikzpicture}[x=1cm,y=1cm]
+\path[use as bounding box] (0,-.10) rectangle (8.4,10.64000);
+\path[fill=panel1Early,fill opacity=.57,draw=none] (2.95,8.74250) .. controls (3.72,8.74250) and (4.28,8.82000) .. (5.05,8.82000) -- (5.05,8.29500) .. controls (4.28,8.29500) and (3.72,8.21750) .. (2.95,8.21750) -- cycle;
+\path[fill=panel1Mid,fill opacity=.57,draw=none] (2.95,8.21750) .. controls (3.72,8.21750) and (4.28,5.32750) .. (5.05,5.32750) -- (5.05,4.72750) .. controls (4.28,4.72750) and (3.72,7.61750) .. (2.95,7.61750) -- cycle;
+\path[fill=panel1Early,fill opacity=.57,draw=none] (2.95,4.47750) .. controls (3.72,4.47750) and (4.28,8.29500) .. (5.05,8.29500) -- (5.05,8.22000) .. controls (4.28,8.22000) and (3.72,4.40250) .. (2.95,4.40250) -- cycle;
+\path[fill=panel1Mid,fill opacity=.57,draw=none] (2.95,4.40250) .. controls (3.72,4.40250) and (4.28,4.72750) .. (5.05,4.72750) -- (5.05,4.35250) .. controls (4.28,4.35250) and (3.72,4.02750) .. (2.95,4.02750) -- cycle;
+\path[fill=panel1Late,fill opacity=.57,draw=none] (2.95,4.02750) .. controls (3.72,4.02750) and (4.28,1.36500) .. (5.05,1.36500) -- (5.05,0.84000) .. controls (4.28,0.84000) and (3.72,3.50250) .. (2.95,3.50250) -- cycle;
+\path[fill=panel1Late,fill opacity=.57,draw=none] (2.95,0.59250) .. controls (3.72,0.59250) and (4.28,0.84000) .. (5.05,0.84000) -- (5.05,0.61500) .. controls (4.28,0.61500) and (3.72,0.36750) .. (2.95,0.36750) -- cycle;
+\draw[fill=black!3,draw=black!50,line width=.35pt] (2.79,7.61750) rectangle (2.95,8.74250);
+\node[align=center,inner sep=0pt,font=\fontsize{7.4}{8.5}\selectfont] at (1.36,8.18000){\begin{tabular}{@{}c@{}}{\fontsize{8.5}{10}\selectfont\bfseries Early (15)}\\[3pt]\textcolor{panel1Early}{\texttt{C141Y}}, \textcolor{panel1Mid}{\texttt{K132E}}, \textcolor{panel1Mid}{\texttt{R110L}}\\[1pt]\textcolor{panel1Mid}{\texttt{R175H}}, \textcolor{panel1Early}{\texttt{R196*}}, \textcolor{panel1Mid}{\texttt{R213*}}\\[1pt]\textcolor{panel1Early}{\texttt{R248Q}}, \textcolor{panel1Early}{\texttt{R248W}}, \textcolor{panel1Mid}{\texttt{R273C}}\\[1pt]\textcolor{panel1Mid}{\texttt{R273H}}, \textcolor{panel1Early}{\texttt{R282W}}, \textcolor{panel1Mid}{\texttt{R342P}}\\[1pt]\textcolor{panel1Mid}{\texttt{S241F}}, \textcolor{panel1Early}{\texttt{Y103*}}, \textcolor{panel1Early}{\texttt{Y220C}}\end{tabular}};
+\draw[fill=black!3,draw=black!50,line width=.35pt] (2.79,3.50250) rectangle (2.95,4.47750);
+\node[align=center,inner sep=0pt,font=\fontsize{7.4}{8.5}\selectfont] at (1.36,3.99000){\begin{tabular}{@{}c@{}}{\fontsize{8.5}{10}\selectfont\bfseries Mid (13)}\\[3pt]\textcolor{panel1Late}{\texttt{C275F}}, \textcolor{panel1Mid}{\texttt{G245S}}, \textcolor{panel1Late}{\texttt{M246V}}\\[1pt]\textcolor{panel1Mid}{\texttt{P152L}}, \textcolor{panel1Late}{\texttt{P27fs}}, \textcolor{panel1Mid}{\texttt{R156H}}\\[1pt]\textcolor{panel1Late}{\texttt{R158H}}, \textcolor{panel1Late}{\texttt{R213Q}}, \textcolor{panel1Late}{\texttt{R306*}}\\[1pt]\textcolor{panel1Mid}{\texttt{R337C}}, \textcolor{panel1Mid}{\texttt{R337H}}, \textcolor{panel1Early}{\texttt{R342*}}\\[1pt]\textcolor{panel1Late}{\texttt{T125T}}\end{tabular}};
+\draw[fill=black!3,draw=black!50,line width=.35pt] (2.79,0.36750) rectangle (2.95,0.59250);
+\node[align=center,inner sep=0pt,font=\fontsize{7.4}{8.5}\selectfont] at (1.36,0.48000){\begin{tabular}{@{}c@{}}{\fontsize{8.5}{10}\selectfont\bfseries Late (3)}\\[3pt]\textcolor{panel1Late}{\texttt{E180K}}, \textcolor{panel1Late}{\texttt{N235S}}, \textcolor{panel1Late}{\texttt{R267W}}\end{tabular}};
+\draw[fill=panel1Early!9,draw=black!50,line width=.35pt] (5.05,8.22000) rectangle (5.21,8.82000);
+\node[align=center,inner sep=0pt,font=\fontsize{7.4}{8.5}\selectfont] at (6.64,8.52000){\begin{tabular}{@{}c@{}}{\fontsize{8.5}{10}\selectfont\bfseries Early (8)}\\[3pt]\textcolor{panel1Early}{\texttt{C141Y}}, \textcolor{panel1Early}{\texttt{R196*}}, \textcolor{panel1Early}{\texttt{R248Q}}\\[1pt]\textcolor{panel1Early}{\texttt{R248W}}, \textcolor{panel1Early}{\texttt{R282W}}, \textcolor{panel1Early}{\texttt{R342*}}\\[1pt]\textcolor{panel1Early}{\texttt{Y103*}}, \textcolor{panel1Early}{\texttt{Y220C}}\end{tabular}};
+\draw[fill=panel1Mid!9,draw=black!50,line width=.35pt] (5.05,4.35250) rectangle (5.21,5.32750);
+\node[align=center,inner sep=0pt,font=\fontsize{7.4}{8.5}\selectfont] at (6.64,4.84000){\begin{tabular}{@{}c@{}}{\fontsize{8.5}{10}\selectfont\bfseries Mid (13)}\\[3pt]\textcolor{panel1Mid}{\texttt{G245S}}, \textcolor{panel1Mid}{\texttt{K132E}}, \textcolor{panel1Mid}{\texttt{P152L}}\\[1pt]\textcolor{panel1Mid}{\texttt{R110L}}, \textcolor{panel1Mid}{\texttt{R156H}}, \textcolor{panel1Mid}{\texttt{R175H}}\\[1pt]\textcolor{panel1Mid}{\texttt{R213*}}, \textcolor{panel1Mid}{\texttt{R273C}}, \textcolor{panel1Mid}{\texttt{R273H}}\\[1pt]\textcolor{panel1Mid}{\texttt{R337C}}, \textcolor{panel1Mid}{\texttt{R337H}}, \textcolor{panel1Mid}{\texttt{R342P}}\\[1pt]\textcolor{panel1Mid}{\texttt{S241F}}\end{tabular}};
+\draw[fill=panel1Late!9,draw=black!50,line width=.35pt] (5.05,0.61500) rectangle (5.21,1.36500);
+\node[align=center,inner sep=0pt,font=\fontsize{7.4}{8.5}\selectfont] at (6.64,0.99000){\begin{tabular}{@{}c@{}}{\fontsize{8.5}{10}\selectfont\bfseries Late (10)}\\[3pt]\textcolor{panel1Late}{\texttt{C275F}}, \textcolor{panel1Late}{\texttt{E180K}}, \textcolor{panel1Late}{\texttt{M246V}}\\[1pt]\textcolor{panel1Late}{\texttt{N235S}}, \textcolor{panel1Late}{\texttt{P27fs}}, \textcolor{panel1Late}{\texttt{R158H}}\\[1pt]\textcolor{panel1Late}{\texttt{R213Q}}, \textcolor{panel1Late}{\texttt{R267W}}, \textcolor{panel1Late}{\texttt{R306*}}\\[1pt]\textcolor{panel1Late}{\texttt{T125T}}\end{tabular}};
+\node[align=center,inner sep=0pt,font=\fontsize{9}{10.5}\selectfont\bfseries] at (1.36,9.89000) {SCP};
+\node[align=center,inner sep=0pt,font=\fontsize{9}{10.5}\selectfont\bfseries] at (6.64,9.89000) {TL-SCP};
+\end{tikzpicture}
+}\end{minipage}\end{minipage}
+\end{document}
